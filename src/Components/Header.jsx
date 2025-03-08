@@ -1,8 +1,8 @@
 import React from "react";
-import "../styles/header.css";
+import "../styles/footer.css";
 const Header = () => {
   return (
-    <div>
+    <div className="headerNav">
       <h1>Taiwan Weather</h1>
       <p>全台天氣概況</p>
       <p>全台天氣預測</p>

@@ -1,1 +1,29 @@
-/*# sourceMappingURL=footer.css.map */
+body {
+  .headerNav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.2rem 0;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    h1 {
+      margin: 0 1.5rem;
+      color: white;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 0 0.5rem;
+    }
+  }
+  .footer {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    text-align: center;
+    background-color: gray;
+    padding: 0.5rem 0;
+  }
+}
