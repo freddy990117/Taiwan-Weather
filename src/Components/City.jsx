@@ -71,6 +71,14 @@ const City = () => {
           </li>
         ))}
       </ul>
+      <section className="cityComponent">
+        <img src="../images/台中市.jpg" alt="" />
+        <h3>City Name</h3>
+        <span>Weather</span>
+        <span>Temperature</span>
+        <span>IsRain</span>
+        <span>IsComfortable</span>
+      </section>
     </div>
   );
 };
@@ -82,13 +90,3 @@ export default City;
 // MinT 最低溫度
 // CI 舒適度
 // PoP 降雨機率
-{
-  /* <section className="cityComponent">
-<img src="../images/台中市.jpg" alt="" />
-<h3>City Name</h3>
-<span>Weather</span>
-<span>Temperature</span>
-<span>IsRain</span>
-<span>IsComfortable</span>
-</section> */
-}
