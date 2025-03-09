@@ -2,6 +2,28 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #fff5ee;
-  font-family: "Roboto", sans-serif;
-}/*# sourceMappingURL=style.css.map */
+  font-family: "url(http://localhost:5173/images/Taiwan.jpg)Roboto", sans-serif;
+} /*# sourceMappingURL=style.css.map */
+
+body {
+  .homepageImage {
+    height: 80vh;
+    flex-direction: column;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      position: absolute;
+      top: 6.8vh;
+      width: 100%;
+      height: 80vh;
+      z-index: -999;
+    }
+    h1 {
+      color: white;
+      font-size: 5rem;
+      letter-spacing: 1rem;
+    }
+  }
+}
