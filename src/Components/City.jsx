@@ -7,13 +7,14 @@ const City = () => {
   const [data, setData] = useState([]);
   const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${APIKey}&limit=2`;
 
-  // 未設定依賴值，所以只執行一次
+  // 只需要執行一次，所以不赦定依賴值
   useEffect(() => {
     // 拿取 API 資料
     async function fetchAPI() {
       // API's Data
       let result = await axios.get(API);
       const location = result.data.records.location;
+      console.log(location);
       const dataLength = location.length;
       // 建立一個 Array 來存放我需要的 API 資料
       const newData = [];
@@ -63,22 +64,25 @@ const City = () => {
   return (
     <div>
       <h2>天氣資訊</h2>
-      <ul>
+      {/* <ul>
         {data.map((weather, index) => (
           <li key={index}>
             {weather[0]}：{weather[4]} - {weather[3]}，降雨機率 {weather[5]}，
             {weather[6]}
           </li>
         ))}
-      </ul>
-      <section className="cityComponent">
-        <img src="../images/台中市.jpg" alt="" />
-        <h3>City Name</h3>
-        <span>Weather</span>
-        <span>Temperature</span>
-        <span>IsRain</span>
-        <span>IsComfortable</span>
-      </section>
+      </ul> */}
+      {data.map((weather, index) => (
+        <section className="cityComponent" key={index}>
+          <img />
+          <h3>{weather[0]}</h3>
+          <span>天氣概況：{weather[6]}</span>
+          <span>
+            溫度位於：{weather[4]} - {weather[3]} 之間
+          </span>
+          <span>降雨機率：{weather[5]}</span>
+        </section>
+      ))}
     </div>
   );
 };
