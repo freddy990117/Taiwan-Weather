@@ -14,7 +14,6 @@ const City = () => {
       // API's Data
       let result = await axios.get(API);
       const location = result.data.records.location;
-      console.log(location);
       const dataLength = location.length;
       // 建立一個 Array 來存放我需要的 API 資料
       const newData = [];
@@ -62,27 +61,88 @@ const City = () => {
     fetchAPI();
   }, []);
   return (
+    // 最終 return 的結果
     <div>
-      <h2>天氣資訊</h2>
-      {/* <ul>
-        {data.map((weather, index) => (
-          <li key={index}>
-            {weather[0]}：{weather[4]} - {weather[3]}，降雨機率 {weather[5]}，
-            {weather[6]}
-          </li>
-        ))}
-      </ul> */}
-      {data.map((weather, index) => (
-        <section className="cityComponent" key={index}>
-          <img />
-          <h3>{weather[0]}</h3>
-          <span>天氣概況：{weather[6]}</span>
-          <span>
-            溫度位於：{weather[4]} - {weather[3]} 之間
-          </span>
-          <span>降雨機率：{weather[5]}</span>
-        </section>
-      ))}
+      {/* data 是一個陣列，透過 map 的方式回傳一個新陣列 */}
+      {data.map((weather, index) => {
+        // 如果沒有符合的圖片，預設開啟 Taiwan.jpg
+        let imgSrc = "../images/Taiwan.jpg";
+        // 透過 Switch case 簡單比較法來顯示圖片
+        switch (weather[0]) {
+          case "台中市":
+            imgSrc = "../images/台中市.jpg";
+            break;
+          case "台北市":
+            imgSrc = "../images/台北市.jpg";
+            break;
+          case "台東縣":
+            imgSrc = "../images/台東縣.jpg";
+            break;
+          case "台南市":
+            imgSrc = "../images/台南市.jpg";
+            break;
+          case "宜蘭縣":
+            imgSrc = "../images/宜蘭縣.jpg";
+            break;
+          case "花蓮縣":
+            imgSrc = "../images/花蓮縣.jpg";
+            break;
+          case "南投縣":
+            imgSrc = "../images/南投縣.jpg";
+            break;
+          case "屏東縣":
+            imgSrc = "../images/屏東縣.jpg";
+            break;
+          case "苗栗線":
+            imgSrc = "../images/苗栗線.jpg";
+            break;
+          case "桃園市":
+            imgSrc = "../images/桃園市.jpg";
+            break;
+          case "高雄市":
+            imgSrc = "../images/高雄市.jpg";
+            break;
+          case "基隆市":
+            imgSrc = "../images/基隆市.jpg";
+            break;
+          case "連江縣":
+            imgSrc = "../images/連江縣.jpg";
+            break;
+          case "雲林縣":
+            imgSrc = "../images/雲林縣.jpg";
+            break;
+          case "新北市":
+            imgSrc = "../images/新北市.jpg";
+            break;
+          case "新竹市":
+            imgSrc = "../images/新竹市.jpg";
+            break;
+          case "嘉義市":
+            imgSrc = "../images/嘉義市.jpg";
+            break;
+          case "嘉義縣":
+            imgSrc = "../images/嘉義縣.jpg";
+            break;
+          case "彰化縣":
+            imgSrc = "../images/彰化縣.jpg";
+            break;
+          case "澎湖縣":
+            imgSrc = "../images/澎湖縣.jpg";
+            break;
+        }
+
+        return (
+          <section className="cityComponent" key={index}>
+            <img src={imgSrc} alt={weather[0]} />
+            <h2>{weather[0]}</h2>
+            <span>天氣概況：{weather[6]}</span>
+            <span>
+              溫度位於：{weather[4]} - {weather[3]} 之間
+            </span>
+            <span>降雨機率：{weather[5]}</span>
+          </section>
+        );
+      })}
     </div>
   );
 };
