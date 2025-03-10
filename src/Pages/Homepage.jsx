@@ -9,7 +9,7 @@ const Homepage = () => {
         <h1>全台天氣概況</h1>
         <h2>點我選城市</h2>
       </section>
-      <section>{/* City Images Data */}</section>
+      {/* <section>City Images Data</section> */}
     </div>
   );
 };

@@ -61,8 +61,8 @@ const City = () => {
     fetchAPI();
   }, []);
   return (
-    // 最終 return 的結果
-    <div>
+    // 最終 return 的結果 (父元素)
+    <div className="City">
       {/* data 是一個陣列，透過 map 的方式回傳一個新陣列 */}
       {data.map((weather, index) => {
         // 如果沒有符合的圖片，預設開啟 Taiwan.jpg
@@ -131,6 +131,7 @@ const City = () => {
             break;
         }
 
+        // return data (子元素)
         return (
           <section className="cityComponent" key={index}>
             <img src={imgSrc} alt={weather[0]} />

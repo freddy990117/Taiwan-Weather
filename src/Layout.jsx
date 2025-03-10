@@ -8,10 +8,10 @@ import City from "./Components/City";
 const Layout = () => {
   return (
     <div>
-      {/* <Header />
+      <Header />
       <Homepage />
-      <Footer /> */}
       <City />
+      <Footer />
     </div>
   );
 };

@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "url(http://localhost:5173/images/Taiwan.jpg)Roboto", sans-serif;
+  width: 100%;
 } /*# sourceMappingURL=style.css.map */
 
 body {
@@ -13,9 +14,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     img {
       position: absolute;
-      width: 100%;
       height: 80vh;
       z-index: -999;
     }

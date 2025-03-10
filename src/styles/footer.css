@@ -7,8 +7,8 @@ body {
     padding: 0.2rem 0;
     background-color: gray;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: start;
     h1 {
       margin: 0 1.5rem;
       color: white;
@@ -19,7 +19,6 @@ body {
     }
   }
   .footer {
-    position: absolute;
     width: 100%;
     top: 100%;
     text-align: center;
