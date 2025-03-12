@@ -68,16 +68,16 @@ const City = () => {
         let imgSrc = "../images/Taiwan.jpg";
         // 透過 Switch case 簡單比較法來顯示圖片
         switch (weather[0]) {
-          case "台中市":
+          case "臺中市":
             imgSrc = "../images/台中市.jpg";
             break;
-          case "台北市":
+          case "臺北市":
             imgSrc = "../images/台北市.jpg";
             break;
-          case "台東縣":
+          case "臺東縣":
             imgSrc = "../images/台東縣.jpg";
             break;
-          case "台南市":
+          case "臺南市":
             imgSrc = "../images/台南市.jpg";
             break;
           case "宜蘭縣":
@@ -92,8 +92,8 @@ const City = () => {
           case "屏東縣":
             imgSrc = "../images/屏東縣.jpg";
             break;
-          case "苗栗線":
-            imgSrc = "../images/苗栗線.jpg";
+          case "苗栗縣":
+            imgSrc = "../images/苗栗縣.jpg";
             break;
           case "桃園市":
             imgSrc = "../images/桃園市.jpg";
@@ -127,6 +127,9 @@ const City = () => {
             break;
           case "澎湖縣":
             imgSrc = "../images/澎湖縣.jpg";
+            break;
+          case "新竹縣":
+            imgSrc = "../images/新竹縣.jpg";
             break;
         }
 
