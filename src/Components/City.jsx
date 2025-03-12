@@ -5,8 +5,7 @@ const APIKey = import.meta.env.VITE_API_KEY;
 const City = () => {
   // data 用於存取 API 的資料
   const [data, setData] = useState([]);
-  const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${APIKey}&limit=2`;
-
+  const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${APIKey}`;
   // 只需要執行一次，所以不赦定依賴值
   useEffect(() => {
     // 拿取 API 資料
