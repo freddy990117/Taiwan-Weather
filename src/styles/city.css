@@ -10,8 +10,8 @@ body {
     width: 100%;
     flex-wrap: wrap;
     .cityComponent {
-      margin: 3rem;
-      height: 65vh;
+      margin: 3rem 2rem;
+      height: 80vh;
       width: 50vh;
       display: flex;
       flex-direction: column;
