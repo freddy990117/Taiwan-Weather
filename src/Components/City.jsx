@@ -1,142 +1,110 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/city.css";
+
 const APIKey = import.meta.env.VITE_API_KEY;
 const City = () => {
   // data 用於存取 API 的資料
   const [data, setData] = useState([]);
+  // loading 判斷是否需要加載，預設加載
+  const [loading, setLoading] = useState(true);
+  // Error 來顯示錯誤訊息，預設 null 無錯誤
+  const [error, setError] = useState(null);
+
   const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${APIKey}`;
-  // 只需要執行一次，所以不赦定依賴值
+
+  // 用一個物件來對應城市名稱與圖片
+  const cityImages = {
+    default: "../images/sky.jpg", // 預設圖片
+    臺中市: "../images/台中市.jpg",
+    臺北市: "../images/台北市.jpg",
+    臺東縣: "../images/台東縣.jpg",
+    臺南市: "../images/台南市.jpg",
+    宜蘭縣: "../images/宜蘭縣.jpg",
+    花蓮縣: "../images/花蓮縣.jpg",
+    南投縣: "../images/南投縣.jpg",
+    屏東縣: "../images/屏東縣.jpg",
+    苗栗縣: "../images/苗栗縣.jpg",
+    桃園市: "../images/桃園市.jpg",
+    高雄市: "../images/高雄市.jpg",
+    基隆市: "../images/基隆市.jpg",
+    連江縣: "../images/連江縣.jpg",
+    雲林縣: "../images/雲林縣.jpg",
+    新北市: "../images/新北市.jpg",
+    新竹市: "../images/新竹市.jpg",
+    嘉義市: "../images/嘉義市.jpg",
+    嘉義縣: "../images/嘉義縣.jpg",
+    彰化縣: "../images/彰化縣.jpg",
+    澎湖縣: "../images/澎湖縣.jpg",
+    新竹縣: "../images/新竹縣.jpg",
+  };
+
+  // Render 後執行
   useEffect(() => {
-    // 拿取 API 資料
     async function fetchAPI() {
-      // API's Data
-      let result = await axios.get(API);
-      const location = result.data.records.location;
-      const dataLength = location.length;
-      // 建立一個 Array 來存放我需要的 API 資料
-      const newData = [];
+      try {
+        // 設定 Loading
+        setLoading(true);
+        let result = await axios.get(API);
+        // 取得 API Data
+        const location = result.data.records.location;
 
-      // 遍佈所有資料並加入到 newData 內
-      for (let i = 0; i <= dataLength - 1; i++) {
-        const city = location[i].locationName;
-        const Startweather = location[i].weatherElement[0].time[0].startTime;
-        const EndWeather = location[i].weatherElement[0].time[0].endTime;
-        // 下雨機率
-        const IsRain =
-          location[i].weatherElement[1].time[0].parameter.parameterName + "%";
-        // 最低溫
-        const MinTemperature =
-          location[i].weatherElement[2].time[0].parameter.parameterName + "°C";
-        // 舒適度
-        const IsComfortable =
-          location[i].weatherElement[3].time[0].parameter.parameterName;
-        // 最高溫
-        const MaxTemperature =
-          location[i].weatherElement[4].time[0].parameter.parameterName + "°C";
+        // 使用 map 資料提取，並且設定一個變數 newData 來儲存提取出的資料
+        const newData = location.map((cityData) => {
+          const city = cityData.locationName;
+          const Startweather = cityData.weatherElement[0].time[0].startTime;
+          const EndWeather = cityData.weatherElement[0].time[0].endTime;
+          const IsRain =
+            cityData.weatherElement[1].time[0].parameter.parameterName + "%";
+          const MinTemperature =
+            cityData.weatherElement[2].time[0].parameter.parameterName + "°C";
+          const IsComfortable =
+            cityData.weatherElement[3].time[0].parameter.parameterName;
+          const MaxTemperature =
+            cityData.weatherElement[4].time[0].parameter.parameterName + "°C";
 
-        // console.log("我是：", city);
-        // console.log("開始天氣時間是：", Startweather);
-        // console.log("結束天氣時間是：", EndWeather);
-        // console.log("最高溫：", MaxTemperature);
-        // console.log("最低溫：", MinTemperature);
-        // console.log("降雨機率：", IsRain);
-        // console.log("舒適度：", IsComfortable);
+          // 返回資料，這時資料會儲存在 newData
+          return [
+            city,
+            Startweather,
+            EndWeather,
+            MaxTemperature,
+            MinTemperature,
+            IsRain,
+            IsComfortable,
+          ];
+        });
 
-        // 新增資料進入 newData
-        newData.push([
-          city,
-          Startweather,
-          EndWeather,
-          MaxTemperature,
-          MinTemperature,
-          IsRain,
-          IsComfortable,
-        ]);
+        // 將 newData 的資料放入 Data
+        setData(newData);
+        setLoading(false);
+      } catch (err) {
+        setError("資料加載失敗，請重整頁面");
+        setLoading(false);
       }
-      // 更新 data 狀態，避免無限渲染
-      setData(newData);
     }
-    fetchAPI();
-  }, []);
-  return (
-    // 最終 return 的結果 (父元素)
-    <div className="City">
-      {/* data 是一個陣列，透過 map 的方式回傳一個新陣列 */}
-      {data.map((weather, index) => {
-        // 如果沒有符合的圖片，預設開啟 Taiwan.jpg
-        let imgSrc = "../images/Taiwan.jpg";
-        // 透過 Switch case 簡單比較法來顯示圖片
-        switch (weather[0]) {
-          case "臺中市":
-            imgSrc = "../images/台中市.jpg";
-            break;
-          case "臺北市":
-            imgSrc = "../images/台北市.jpg";
-            break;
-          case "臺東縣":
-            imgSrc = "../images/台東縣.jpg";
-            break;
-          case "臺南市":
-            imgSrc = "../images/台南市.jpg";
-            break;
-          case "宜蘭縣":
-            imgSrc = "../images/宜蘭縣.jpg";
-            break;
-          case "花蓮縣":
-            imgSrc = "../images/花蓮縣.jpg";
-            break;
-          case "南投縣":
-            imgSrc = "../images/南投縣.jpg";
-            break;
-          case "屏東縣":
-            imgSrc = "../images/屏東縣.jpg";
-            break;
-          case "苗栗縣":
-            imgSrc = "../images/苗栗縣.jpg";
-            break;
-          case "桃園市":
-            imgSrc = "../images/桃園市.jpg";
-            break;
-          case "高雄市":
-            imgSrc = "../images/高雄市.jpg";
-            break;
-          case "基隆市":
-            imgSrc = "../images/基隆市.jpg";
-            break;
-          case "連江縣":
-            imgSrc = "../images/連江縣.jpg";
-            break;
-          case "雲林縣":
-            imgSrc = "../images/雲林縣.jpg";
-            break;
-          case "新北市":
-            imgSrc = "../images/新北市.jpg";
-            break;
-          case "新竹市":
-            imgSrc = "../images/新竹市.jpg";
-            break;
-          case "嘉義市":
-            imgSrc = "../images/嘉義市.jpg";
-            break;
-          case "嘉義縣":
-            imgSrc = "../images/嘉義縣.jpg";
-            break;
-          case "彰化縣":
-            imgSrc = "../images/彰化縣.jpg";
-            break;
-          case "澎湖縣":
-            imgSrc = "../images/澎湖縣.jpg";
-            break;
-          case "新竹縣":
-            imgSrc = "../images/新竹縣.jpg";
-            break;
-        }
 
-        // return data (子元素)
+    fetchAPI();
+    // 未設定 dependency，只會在初次 Render 後加載
+  }, []);
+
+  if (loading) {
+    return <h1>資料加載中...</h1>;
+  }
+
+  if (error) {
+    return <h1>{error}</h1>;
+  }
+
+  return (
+    <div className="City">
+      {data.map((weather, index) => {
+        // 根據城市名稱取得對應的圖片，若找不到則使用預設圖片
+        const image = cityImages[weather[0]] || cityImages["default"];
+
         return (
           <section className="cityComponent" key={index}>
-            <img src={imgSrc} alt={weather[0]} />
+            <img src={image} alt={weather[0]} />
             <h2>{weather[0]}</h2>
             <span>天氣概況：{weather[6]}</span>
             <span>
@@ -151,9 +119,3 @@ const City = () => {
 };
 
 export default City;
-
-// Wx 天氣現象
-// MaxT 最高溫度
-// MinT 最低溫度
-// CI 舒適度
-// PoP 降雨機率
