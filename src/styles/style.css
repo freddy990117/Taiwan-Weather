@@ -25,5 +25,51 @@ body {
       font-size: 5rem;
       letter-spacing: 1rem;
     }
+
+    /* Dropdown 外層 */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      width: 10%;
+    }
+
+    /* 按鈕樣式 */
+    .dropdown-btn {
+      background-color: #3498db;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1.2rem;
+    }
+
+    /* 選單 */
+    .dropdown-menu {
+      position: absolute;
+      padding: 0.5rem 0;
+      background-color: white;
+      list-style: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: none; /* 預設隱藏 */
+    }
+
+    /* 選單內的選項 */
+    .dropdown-menu li {
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    /* 滑鼠懸停效果 */
+    .dropdown-menu li:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* 顯示選單 */
+    .show {
+      display: block;
+    }
   }
 }
