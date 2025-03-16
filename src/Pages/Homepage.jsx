@@ -72,16 +72,20 @@ const Homepage = () => {
         <img src="../images/Taiwan.jpg" alt="Taiwan Mountain" />
         {/* <figcaption>Alishan Ｍountain</figcaption> */}
         <h1>全台天氣概況</h1>
-        <div className="dropdown">
+        <div className="cityDown">
           {/* 點選查看是否已開啟 */}
-          <button className="dropdown-btn" onClick={() => setIsOpen(!isOpen)}>
+          <button className="city-btn" onClick={() => setIsOpen(!isOpen)}>
             選擇城市
           </button>
           {/* 如果沒有開啟，加入 className show，開啟則移除 */}
-          <ul className={`dropdown-menu ${isOpen ? "show" : ""}`}>
+          <ul className={`city-menu ${isOpen ? "show" : ""}`}>
             {/* 顯示 API 內的城市 */}
             {data.map((weather, index) => (
-              <li key={index}>{weather.city}</li>
+              <li key={index} id={index}>
+                {/*透過 id 來決定要跳到哪一個城市 (Key是 React 識別用)*/}
+                <a href={`#${index}`}>{weather.city}</a>
+                {/* {weather.city} */}
+              </li>
             ))}
           </ul>
         </div>

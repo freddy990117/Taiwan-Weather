@@ -25,7 +25,7 @@ const imgSrc = {
   澎湖縣: "../images/澎湖縣.jpg",
   新竹縣: "../images/新竹縣.jpg",
 };
-// 接收 data Props 
+// 接收 data Props
 const City = ({ data }) => {
   return (
     <div className="City">
@@ -34,7 +34,7 @@ const City = ({ data }) => {
           const image = imgSrc[weather.city] || imgSrc.default; // 直接查找物件
 
           return (
-            <section className="cityComponent" key={index}>
+            <section className="cityComponent" key={index} id={index}>
               <img src={image} alt={weather.city} />
               <h2>{weather.city}</h2>
               <span>天氣概況：{weather.isComfortable}</span>

@@ -11,7 +11,7 @@ body {
     flex-wrap: wrap;
     .cityComponent {
       margin: 3rem 2rem;
-      height: 80vh;
+      height: 55vh;
       width: 50vh;
       display: flex;
       flex-direction: column;
@@ -27,7 +27,7 @@ body {
       img {
         border-radius: 10px;
         width: 100%;
-        height: 60%;
+        height: 50%;
         background-size: cover;
       }
       span {

@@ -26,15 +26,15 @@ body {
       letter-spacing: 1rem;
     }
 
-    /* Dropdown 外層 */
-    .dropdown {
+    /* 設定 city 的位置 */
+    .cityDown {
       position: relative;
       display: inline-block;
-      width: 10%;
+      width: 10vw;
     }
 
-    /* 按鈕樣式 */
-    .dropdown-btn {
+    /* city 的按鈕樣式 */
+    .city-btn {
       background-color: #3498db;
       color: white;
       padding: 0.5rem 1rem;
@@ -44,8 +44,8 @@ body {
       font-size: 1.2rem;
     }
 
-    /* 選單 */
-    .dropdown-menu {
+    /* 選單的樣式 */
+    .city-menu {
       position: absolute;
       padding: 0.5rem 0;
       background-color: white;
@@ -55,15 +55,20 @@ body {
       display: none; /* 預設隱藏 */
     }
 
+    .city-menu a {
+      text-decoration: none;
+      color: black;
+    }
+
     /* 選單內的選項 */
-    .dropdown-menu li {
+    .city-menu li {
       padding: 0.5rem;
       cursor: pointer;
       transition: background 0.2s;
     }
 
     /* 滑鼠懸停效果 */
-    .dropdown-menu li:hover {
+    .city-menu li:hover {
       background-color: #f1f1f1;
     }
 
