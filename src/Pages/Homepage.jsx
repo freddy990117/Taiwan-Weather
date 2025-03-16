@@ -77,17 +77,27 @@ const Homepage = () => {
           <button className="city-btn" onClick={() => setIsOpen(!isOpen)}>
             選擇城市
           </button>
-          {/* 如果沒有開啟，加入 className show，開啟則移除 */}
-          <ul className={`city-menu ${isOpen ? "show" : ""}`}>
-            {/* 顯示 API 內的城市 */}
-            {data.map((weather, index) => (
-              <li key={index} id={index}>
-                {/*透過 id 來決定要跳到哪一個城市 (Key是 React 識別用)*/}
-                <a href={`#${index}`}>{weather.city}</a>
-                {/* {weather.city} */}
-              </li>
-            ))}
-          </ul>
+          {/* 透過 Logical AND 條件來比對，如果 isOpen 是 true，顯示 city-meun 表單*/}
+          {isOpen && (
+            // 如果沒有開啟，就加入 className show，開啟則移除
+            <ul className={`city-menu ${isOpen ? "show" : ""}`}>
+              {/* 顯示 API 內的城市 */}
+              {data.map((weather, index) => (
+                <li key={index} id={index}>
+                  <a
+                    // 透過 id 來決定要跳到哪一個城市 ( Key是給 React 識別用)
+                    href={`#${index}`}
+                    onClick={() => {
+                      // 點選該縣市後將 isOpen 狀態更改為 false
+                      setIsOpen(false);
+                    }}
+                  >
+                    {weather.city}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </section>
       {/* 傳遞 Props */}
