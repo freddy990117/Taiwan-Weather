@@ -6,7 +6,10 @@ import City from "../Components/City";
 const Homepage = () => {
   // data 用於存取 API 的資料
   const [data, setData] = useState([]);
+  // isOpen 用於檢查表單是否開啟
   const [isOpen, setIsOpen] = useState(false);
+  // selectCity 用於追蹤點選的 City 是哪一個，預設值是 null
+  const [selectCity, setSelectCity] = useState(null);
 
   // Render 後執行
   useEffect(() => {
@@ -55,13 +58,20 @@ const Homepage = () => {
             <ul className={`city-menu ${isOpen ? "show" : ""}`}>
               {/* 顯示 API 內的城市 */}
               {data.map((weather, index) => (
-                <li key={index} id={index}>
+                <li
+                  key={index}
+                  id={index}
+                  // 檢查 selectCity 的狀態，如果有 index 加入 active
+                  className={selectCity === index ? "active" : ""}
+                >
                   <a
                     // 透過 id 來決定要跳到哪一個城市 (Key 給 React 識別)
                     href={`#${index}`}
                     onClick={() => {
                       // 點選該縣市後將 isOpen 狀態更改為 false
                       setIsOpen(false);
+                      // index 代表使用者選中的城市
+                      setSelectCity(index);
                     }}
                   >
                     {weather.city}

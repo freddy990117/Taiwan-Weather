@@ -67,6 +67,9 @@ body {
       transition: background 0.2s;
     }
 
+    .city-menu li .active {
+      background-color: #007bff; /* 選中的顏色 */
+    }
     /* 滑鼠懸停效果 */
     .city-menu li:hover {
       background-color: #f1f1f1;
@@ -77,4 +80,10 @@ body {
       display: block;
     }
   }
+  /* .toUp {
+    position: fixed;
+    right: 10%;
+    top: 80%;
+    border-radius: 50%;
+  } */
 }
