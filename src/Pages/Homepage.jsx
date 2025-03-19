@@ -8,8 +8,6 @@ const Homepage = () => {
   const [data, setData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  // 用一個物件來對應城市名稱與圖片
-
   // Render 後執行
   useEffect(() => {
     async function fetchAPI() {
@@ -18,32 +16,6 @@ const Homepage = () => {
       let result = await axios.get(API);
       // 取得 API Data
       const location = result.data.records.location;
-
-      // 使用 map 資料提取，並且設定一個變數 newData 來儲存提取出的資料
-      // const newData = location.map((cityData) => {
-      //   const city = cityData.locationName;
-      //   const Startweather = cityData.weatherElement[0].time[0].startTime;
-      //   const EndWeather = cityData.weatherElement[0].time[0].endTime;
-      //   const IsRain =
-      //     cityData.weatherElement[1].time[0].parameter.parameterName + "%";
-      //   const MinTemperature =
-      //     cityData.weatherElement[2].time[0].parameter.parameterName + "°C";
-      //   const IsComfortable =
-      //     cityData.weatherElement[3].time[0].parameter.parameterName;
-      //   const MaxTemperature =
-      //     cityData.weatherElement[4].time[0].parameter.parameterName + "°C";
-
-      //   // 返回資料，這時資料會儲存在 newData
-      //   return [
-      //     city,
-      //     Startweather,
-      //     EndWeather,
-      //     MaxTemperature,
-      //     MinTemperature,
-      //     IsRain,
-      //     IsComfortable,
-      //   ];
-      // });
 
       const newData = location.map((cityData) => ({
         city: cityData.locationName,
@@ -85,7 +57,7 @@ const Homepage = () => {
               {data.map((weather, index) => (
                 <li key={index} id={index}>
                   <a
-                    // 透過 id 來決定要跳到哪一個城市 ( Key是給 React 識別用)
+                    // 透過 id 來決定要跳到哪一個城市 (Key 給 React 識別)
                     href={`#${index}`}
                     onClick={() => {
                       // 點選該縣市後將 isOpen 狀態更改為 false
@@ -102,6 +74,7 @@ const Homepage = () => {
       </section>
       {/* 傳遞 Props */}
       <City data={data} />
+      {/* <button className="toUp">到最上方的按鍵</button> */}
     </div>
   );
 };
