@@ -8,7 +8,7 @@ const Homepage = () => {
   const [data, setData] = useState([]);
   // isOpen 用於檢查表單是否開啟
   const [isOpen, setIsOpen] = useState(false);
-  // selectCity 用於追蹤點選的 City 是哪一個，預設值是 null
+  // selectCity 用於追蹤點選的 cityComponent 是哪一個，預設值是 null
   const [selectCity, setSelectCity] = useState(null);
 
   // Render 後執行
@@ -58,19 +58,14 @@ const Homepage = () => {
             <ul className={`city-menu ${isOpen ? "show" : ""}`}>
               {/* 顯示 API 內的城市 */}
               {data.map((weather, index) => (
-                <li
-                  key={index}
-                  id={index}
-                  // 檢查 selectCity 的狀態，如果有 index 加入 active
-                  className={selectCity === index ? "active" : ""}
-                >
+                <li key={index} id={index}>
                   <a
                     // 透過 id 來決定要跳到哪一個城市 (Key 給 React 識別)
                     href={`#${index}`}
                     onClick={() => {
-                      // 點選該縣市後將 isOpen 狀態更改為 false
+                      // 點選該縣市後將 isOpen 狀態更改為 false (關閉 city-menu表單)
                       setIsOpen(false);
-                      // index 代表使用者選中的城市
+                      // 透過 index 來決定重點提示的 cityComponent 是哪一個
                       setSelectCity(index);
                     }}
                   >
@@ -82,8 +77,8 @@ const Homepage = () => {
           )}
         </div>
       </section>
-      {/* 傳遞 Props */}
-      <City data={data} />
+      {/* 傳遞 Props (data 是 API Data, selectCity 是 重點表單的追蹤目標)*/}
+      <City data={data} selectCity={selectCity} />
       {/* <button className="toUp">到最上方的按鍵</button> */}
     </div>
   );

@@ -87,3 +87,20 @@ body {
     border-radius: 50%;
   } */
 }
+/* 新增 City Component 的重點提示動畫  (point)*/
+@keyframes point {
+  0% {
+    background-color: #f5f3df;
+  }
+  50% {
+    background-color: #d2cfb4;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+/* 加入 point 動畫效果 */
+.point {
+  animation: point 2s linear 2; /* 閃爍 2 次 */
+}
