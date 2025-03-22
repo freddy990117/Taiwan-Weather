@@ -62,11 +62,22 @@ const Homepage = () => {
                   <a
                     // 透過 id 來決定要跳到哪一個城市 (Key 給 React 識別)
                     href={`#${index}`}
-                    onClick={() => {
+                    // 新增 e.target
+                    onClick={(e) => {
+                      // 防止 a tag 的預設跳轉行為 (顯示在畫面上方)，而是讓 scrollIntoView 來控制滾動效果。
+                      e.preventDefault();
                       // 點選該縣市後將 isOpen 狀態更改為 false (關閉 city-menu表單)
                       setIsOpen(false);
                       // 透過 index 來決定重點提示的 cityComponent 是哪一個
                       setSelectCity(index);
+                      // 因為 React 狀態是 async，點選 index 時狀態尚未更新
+                      setTimeout(() => {
+                        // 如果 index 存在，執行 scrollIntoView，不存在則不做任何事
+                        document.getElementById(index)?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "center",
+                        });
+                      }, 100); // 等待 100ms 後後滾動
                     }}
                   >
                     {weather.city}
