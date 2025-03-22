@@ -1,6 +1,11 @@
 import React from "react";
 import "../styles/city.css";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCloud,
+  faUmbrella,
+  faTemperatureHalf,
+} from "@fortawesome/free-solid-svg-icons";
 const imgSrc = {
   default: "../images/Taiwan.jpg", // 預設圖片
   臺中市: "../images/台中市.jpg",
@@ -41,11 +46,24 @@ const City = ({ data, selectCity }) => {
             >
               <img src={image} alt={weather.city} />
               <h2>{weather.city}</h2>
-              <span>天氣概況：{weather.isComfortable}</span>
               <span>
+                <FontAwesomeIcon className="FontAwesomeIcon" icon={faCloud} />
+                天氣概況：{weather.isComfortable}
+              </span>
+              <span>
+                <FontAwesomeIcon
+                  className="FontAwesomeIcon"
+                  icon={faTemperatureHalf}
+                />
                 溫度位於：{weather.minTemp} - {weather.maxTemp} 之間
               </span>
-              <span>降雨機率：{weather.isRain}</span>
+              <span>
+                <FontAwesomeIcon
+                  className="FontAwesomeIcon"
+                  icon={faUmbrella}
+                />
+                降雨機率：{weather.isRain}
+              </span>
             </section>
           );
         })}

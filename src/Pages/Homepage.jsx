@@ -3,6 +3,8 @@ import "../styles/style.css";
 import axios from "axios";
 const APIKey = import.meta.env.VITE_API_KEY;
 import City from "../Components/City";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMap } from "@fortawesome/free-solid-svg-icons";
 const Homepage = () => {
   // data 用於存取 API 的資料
   const [data, setData] = useState([]);
@@ -50,6 +52,7 @@ const Homepage = () => {
         <div className="cityDown">
           {/* 點選查看是否已開啟 */}
           <button className="city-btn" onClick={() => setIsOpen(!isOpen)}>
+            <FontAwesomeIcon icon={faMap} />
             選擇城市
           </button>
           {/* 透過 Logical AND 條件來比對，如果 isOpen 是 true，顯示 city-meun 表單*/}
