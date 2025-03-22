@@ -31,9 +31,17 @@ body {
         background-size: cover;
       }
       span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
         font-size: 1.2rem;
         padding: 1rem;
         border-top: 2px dashed gray;
+        .FontAwesomeIcon {
+          font-size: 1.5rem;
+          width: 10%;
+        }
       }
     }
   }
