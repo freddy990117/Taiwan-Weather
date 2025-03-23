@@ -80,12 +80,24 @@ body {
       display: block;
     }
   }
-  /* .toUp {
+  .toUp {
     position: fixed;
-    right: 10%;
-    top: 80%;
-    border-radius: 50%;
-  } */
+    right: 1%;
+    top: 90%;
+    width: 5%;
+    padding: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+    .icon {
+      width: 100%;
+      font-size: 2rem;
+    }
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
 }
 /* 新增 City Component 的重點提示動畫  (point)*/
 @keyframes point {

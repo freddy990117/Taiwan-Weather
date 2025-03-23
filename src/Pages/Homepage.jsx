@@ -4,7 +4,7 @@ import axios from "axios";
 const APIKey = import.meta.env.VITE_API_KEY;
 import City from "../Components/City";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMap } from "@fortawesome/free-solid-svg-icons";
+import { faMap, faUpLong } from "@fortawesome/free-solid-svg-icons";
 const Homepage = () => {
   // data 用於存取 API 的資料
   const [data, setData] = useState([]);
@@ -73,7 +73,7 @@ const Homepage = () => {
                       setIsOpen(false);
                       // 透過 index 來決定重點提示的 cityComponent 是哪一個
                       setSelectCity(index);
-                      // 因為 React 狀態是 async，點選 index 時狀態尚未更新
+                      // 因為 React 狀態是 async，點選 index 時狀態尚未更新，加入 setTimeout 等待渲染完成後執行
                       setTimeout(() => {
                         // 如果 index 存在，執行 scrollIntoView，不存在則不做任何事
                         document.getElementById(index)?.scrollIntoView({
@@ -93,7 +93,14 @@ const Homepage = () => {
       </section>
       {/* 傳遞 Props (data 是 API Data, selectCity 是 重點表單的追蹤目標)*/}
       <City data={data} selectCity={selectCity} />
-      {/* <button className="toUp">到最上方的按鍵</button> */}
+      <button
+        className="toUp"
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
+        <FontAwesomeIcon className="icon" icon={faUpLong} />
+      </button>
     </div>
   );
 };
