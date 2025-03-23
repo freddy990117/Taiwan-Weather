@@ -2,9 +2,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "url(http://localhost:5173/images/Taiwan.jpg)Roboto", sans-serif;
+  font-family: sans-serif;
   width: 100%;
-} /*# sourceMappingURL=style.css.map */
+}
 
 body {
   .homepageImage {

@@ -10,12 +10,18 @@ body {
     justify-content: flex-start;
     h1 {
       margin-left: 2rem;
-      max-width: 300px;
+      max-width: 280px;
       color: white;
     }
     p {
+      z-index: 1;
       font-size: 1.2rem;
-      max-width: 200px;
+      max-width: 150px;
+      a {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+      }
     }
   }
   .footer {
