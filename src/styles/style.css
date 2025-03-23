@@ -2,8 +2,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "url(http://localhost:5173/images/Taiwan.jpg)Roboto", sans-serif;
-} /*# sourceMappingURL=style.css.map */
+  font-family: sans-serif;
+  width: 100%;
+}
 
 body {
   .homepageImage {
@@ -13,9 +14,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     img {
       position: absolute;
-      width: 100%;
       height: 80vh;
       z-index: -999;
     }
@@ -24,5 +25,94 @@ body {
       font-size: 5rem;
       letter-spacing: 1rem;
     }
+
+    /* 設定 city 的位置 */
+    .cityDown {
+      position: relative;
+      display: inline-block;
+      width: 10vw;
+    }
+
+    /* city 的按鈕樣式 */
+    .city-btn {
+      /* 不換行 white-space */
+      background-color: #3498db;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1.2rem;
+    }
+
+    /* 選單的樣式 */
+    .city-menu {
+      position: absolute;
+      padding: 0.5rem 0;
+      background-color: white;
+      list-style: none;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: none; /* 預設隱藏 */
+      height: 30vh;
+      overflow-y: scroll;
+    }
+
+    .city-menu a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* 選單內的選項 */
+    .city-menu li {
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    /* 滑鼠懸停效果 */
+    .city-menu li:hover {
+      background-color: rgba(0, 0, 255, 0.7);
+    }
+
+    /* 顯示選單 */
+    .show {
+      display: block;
+    }
   }
+  .toUp {
+    position: fixed;
+    right: 1%;
+    top: 90%;
+    width: 5%;
+    padding: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+    .icon {
+      width: 100%;
+      font-size: 2rem;
+    }
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+/* 新增 City Component 的重點提示動畫  (point)*/
+@keyframes point {
+  0% {
+    background-color: #f5f3df;
+  }
+  50% {
+    background-color: #d2cfb4;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+/* 加入 point 動畫效果 */
+.point {
+  animation: point 2s linear 2; /* 閃爍 2 次 */
 }

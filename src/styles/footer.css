@@ -3,23 +3,28 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    padding: 0.2rem 0;
+    padding: 0.5rem 0;
     background-color: gray;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     h1 {
-      margin: 0 1.5rem;
+      margin-left: 2rem;
+      max-width: 280px;
       color: white;
     }
     p {
+      z-index: 1;
       font-size: 1.2rem;
-      margin: 0 0.5rem;
+      max-width: 150px;
+      a {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+      }
     }
   }
   .footer {
-    position: absolute;
     width: 100%;
     top: 100%;
     text-align: center;
