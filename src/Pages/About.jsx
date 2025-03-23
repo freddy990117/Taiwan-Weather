@@ -11,13 +11,18 @@ const About = () => {
       <section className="about now-weather">
         <h1>現在天氣</h1>
         <div className="about-weather">
-          <div className="about-wind">天氣現象</div>
-          <div className="about-temp">
-            平均暈度
-            <span className="temp"></span>
+          <div className="about-wind">
+            天氣現象
+            <span className="icon wind">ICON</span>
           </div>
-          <div className="about-rain">降雨機率</div>
-          <span className="rain"></span>
+          <div className="about-temp">
+            平均溫度
+            <span className="icon temp">ICON</span>
+          </div>
+          <div className="about-rain">
+            降雨機率
+            <span className="icon rain">ICON</span>
+          </div>
         </div>
       </section>
       <section className="about future-weather">天氣預測</section>
