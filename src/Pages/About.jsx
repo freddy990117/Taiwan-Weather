@@ -8,6 +8,7 @@ const About = () => {
           <span className="city-name">City Name</span>
         </h1>
       </section>
+      {/* 現在天氣 */}
       <section className="about now-weather">
         <h1>現在天氣</h1>
         <div className="about-weather">
@@ -25,8 +26,51 @@ const About = () => {
           </div>
         </div>
       </section>
-      <section className="about future-weather">天氣預測</section>
+      {/* 天氣預測 */}
+      <section className="about future-weather">
+        <h1>天氣預測</h1>
+        <div className="weather-nav">
+          <div className="weather-detail">
+            <div className="weather-date">Date</div>
+            <div className="weather-cloud">Weather</div>
+            <div className="weather-temp">Temp</div>
+            <div className="weather-rain">Rain %</div>
+          </div>
+          <div className="weather-detail">
+            <div className="weather-date">Date</div>
+            <div className="weather-cloud">Weather</div>
+            <div className="weather-temp">Temp</div>
+            <div className="weather-rain">Rain %</div>
+          </div>
+          <div className="weather-detail">
+            <div className="weather-date">Date</div>
+            <div className="weather-cloud">Weather</div>
+            <div className="weather-temp">Temp</div>
+            <div className="weather-rain">Rain %</div>
+          </div>
+          <div className="weather-detail">
+            <div className="weather-date">Date</div>
+            <div className="weather-cloud">Weather</div>
+            <div className="weather-temp">Temp</div>
+            <div className="weather-rain">Rain %</div>
+          </div>
+          <div className="weather-detail">
+            <div className="weather-date">Date</div>
+            <div className="weather-cloud">Weather</div>
+            <div className="weather-temp">Temp</div>
+            <div className="weather-rain">Rain %</div>
+          </div>
+          <div className="weather-detail">
+            <div className="weather-date">Date</div>
+            <div className="weather-cloud">Weather</div>
+            <div className="weather-temp">Temp</div>
+            <div className="weather-rain">Rain %</div>
+          </div>
+        </div>
+      </section>
+      {/* 下雨機率 */}
       <section className="about future-rain">下雨機率預測</section>
+      {/* 整週天氣 */}
       <section className="about future-temp">一週天氣預測</section>
     </div>
   );
