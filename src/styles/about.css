@@ -1,0 +1,29 @@
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 60vh;
+  width: 100%;
+  border: 1px solid black;
+}
+.about-image {
+  margin-top: 3rem;
+  background-image: url(../images/Taiwan.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.now-weather {
+  flex-direction: column;
+  background-color: antiquewhite;
+}
+.future-weather {
+  background-color: blue;
+}
+.future-rain {
+  background-color: lightblue;
+}
+.future-temp {
+  background-color: lightgray;
+}
