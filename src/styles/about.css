@@ -44,6 +44,24 @@
   display: flex;
   width: 100%;
   flex-direction: column;
+  position: relative;
+  .weather-btn {
+    position: absolute;
+    top: 60%;
+    height: 5%;
+    width: 2%;
+    border: none;
+    color: blue;
+    cursor: pointer;
+    background-color: white;
+    font-size: 1.5rem;
+  }
+  .left {
+    left: 15.4%;
+  }
+  .right {
+    right: 15.4%;
+  }
   .weather-nav {
     border: 1px dotted gray;
     width: 65%;

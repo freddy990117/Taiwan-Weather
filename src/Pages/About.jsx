@@ -4,7 +4,8 @@ import { WeatherContext } from "../Context/WeatherContext";
 
 const About = () => {
   const data = useContext(WeatherContext); // 取得 API 資料
-
+  const [page, setPage] = useState(0);
+  console.log(page);
   return (
     <div>
       <section className="about about-image">
@@ -33,7 +34,12 @@ const About = () => {
       {/* 天氣預測 */}
       <section className="about future-weather">
         <h1>天氣預測</h1>
-        {/* <button onClick={PrevBtn}>←</button> */}
+        <button
+          onClick={() => setPage((prev) => prev - 1)}
+          className="weather-btn left"
+        >
+          ←
+        </button>
         <div className="weather-nav">
           <div className="weather-detail">
             <div className="weather-date">Date</div>
@@ -72,7 +78,12 @@ const About = () => {
             <div className="weather-rain">Rain %</div>
           </div>
         </div>
-        {/* <button onClick={NextBtn}>→</button> */}
+        <button
+          onClick={() => setPage((prev) => prev + 1)}
+          className="weather-btn right"
+        >
+          →
+        </button>
       </section>
       {/* 下雨機率 */}
       <section className="about future-rain">下雨機率預測</section>
