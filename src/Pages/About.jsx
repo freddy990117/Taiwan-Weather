@@ -1,6 +1,10 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import "../styles/about.css";
+import { WeatherContext } from "../Context/WeatherContext";
+
 const About = () => {
+  const data = useContext(WeatherContext); // 取得 API 資料
+
   return (
     <div>
       <section className="about about-image">
