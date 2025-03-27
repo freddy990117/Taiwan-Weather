@@ -47,20 +47,24 @@
   position: relative;
   .weather-btn {
     position: absolute;
-    top: 60%;
-    height: 5%;
-    width: 2%;
+    top: 50%;
+    transform: translateY(70%); /* 讓按鈕在 Y 軸上居中 */
+    height: 40px; /* 設定固定高度 */
+    width: 60px; /* 設定固定寬度 */
     border: none;
     color: blue;
     cursor: pointer;
-    background-color: white;
     font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
   }
   .left {
-    left: 15.4%;
+    left: 15%;
   }
   .right {
-    right: 15.4%;
+    right: 15%;
   }
   .weather-nav {
     border: 1px dotted gray;

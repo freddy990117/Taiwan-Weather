@@ -5,7 +5,13 @@ import { WeatherContext } from "../Context/WeatherContext";
 const About = () => {
   const data = useContext(WeatherContext); // 取得 API 資料
   const [page, setPage] = useState(0);
-  console.log(page);
+  // 總共頁數是 2
+  const maxPage = Math.floor(2);
+  // 計算當前顯示的 3 個天氣資料
+  const startIndex = page * 3;
+  // 取出 3 個 weather-detail 來顯示
+  const visibleData = data.slice(startIndex, startIndex + 3);
+
   return (
     <div>
       <section className="about about-image">
@@ -34,8 +40,10 @@ const About = () => {
       {/* 天氣預測 */}
       <section className="about future-weather">
         <h1>天氣預測</h1>
+        {/* 向左按鈕 */}
         <button
-          onClick={() => setPage((prev) => prev - 1)}
+          onClick={() => setPage((prev) => Math.max(prev - 1, 0))}
+          disabled={page === 0}
           className="weather-btn left"
         >
           ←
@@ -78,8 +86,11 @@ const About = () => {
             <div className="weather-rain">Rain %</div>
           </div>
         </div>
+
+        {/* 向右按鈕 */}
         <button
-          onClick={() => setPage((prev) => prev + 1)}
+          onClick={() => setPage((prev) => Math.min(prev + 1, maxPage - 1))}
+          disabled={page >= maxPage - 1}
           className="weather-btn right"
         >
           →
