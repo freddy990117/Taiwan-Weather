@@ -1,47 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
+import { WeatherContext } from "../Context/WeatherContext";
 import "../styles/style.css";
-import axios from "axios";
-const APIKey = import.meta.env.VITE_API_KEY;
 import City from "../Components/City";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMap, faUpLong } from "@fortawesome/free-solid-svg-icons";
+
 const Homepage = () => {
-  // data 用於存取 API 的資料
-  const [data, setData] = useState([]);
-  // isOpen 用於檢查表單是否開啟
+  const data = useContext(WeatherContext); // 取得 API 資料
   const [isOpen, setIsOpen] = useState(false);
-  // selectCity 用於追蹤點選的 cityComponent 是哪一個，預設值是 null
   const [selectCity, setSelectCity] = useState(null);
-
-  // Render 後執行
-  useEffect(() => {
-    async function fetchAPI() {
-      const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${APIKey}`;
-      // 取得 API
-      let result = await axios.get(API);
-      // 取得 API Data
-      const location = result.data.records.location;
-
-      const newData = location.map((cityData) => ({
-        city: cityData.locationName,
-        startTime: cityData.weatherElement[0].time[0].startTime,
-        endTime: cityData.weatherElement[0].time[0].endTime,
-        isRain:
-          cityData.weatherElement[1].time[0].parameter.parameterName + "%",
-        minTemp:
-          cityData.weatherElement[2].time[0].parameter.parameterName + "°C",
-        isComfortable:
-          cityData.weatherElement[3].time[0].parameter.parameterName,
-        maxTemp:
-          cityData.weatherElement[4].time[0].parameter.parameterName + "°C",
-      }));
-
-      // 將 newData 的資料放入 Data
-      setData(newData); // 更新狀態
-    }
-    fetchAPI();
-    // 未設定 dependency，只會在初次 Render 後加載
-  }, []);
 
   return (
     <div>
@@ -93,6 +60,7 @@ const Homepage = () => {
       </section>
       {/* 傳遞 Props (data 是 API Data, selectCity 是 重點表單的追蹤目標)*/}
       <City data={data} selectCity={selectCity} />
+      {/* 移動至最上方按鈕 */}
       <button
         className="toUp"
         onClick={() => {

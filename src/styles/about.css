@@ -1,0 +1,114 @@
+.about {
+  h1 {
+    color: lightblue;
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 60vh;
+  width: 100%;
+  border: 1px solid black;
+}
+.about-image {
+  margin-top: 3rem;
+  background-image: url(../images/Taiwan.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.now-weather {
+  flex-direction: column;
+  width: 100%;
+  .about-weather {
+    width: 70%;
+    height: 40%;
+    border: 1px dotted gray;
+    display: flex;
+    padding: 1rem 0;
+    justify-content: space-between;
+    .info {
+      background-color: black;
+    }
+    .about-wind {
+    }
+    .about-temp {
+    }
+    .about-rain {
+    }
+  }
+}
+.future-weather {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  .weather-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(70%); /* 讓按鈕在 Y 軸上居中 */
+    height: 40px; /* 設定固定高度 */
+    width: 60px; /* 設定固定寬度 */
+    border: none;
+    color: blue;
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+  .left {
+    left: 15%;
+  }
+  .right {
+    right: 15%;
+  }
+  .weather-nav {
+    border: 1px dotted gray;
+    width: 65%;
+    height: 60%;
+    display: flex;
+    overflow-x: hidden;
+    .weather-detail {
+      display: flex;
+      flex-direction: column;
+      border: 1px dotted gray;
+      flex: 0 0 33.4%; /* 每個區塊的寬度一致 */
+      scroll-snap-align: center; /* 讓滾動時對齊 */
+      width: 100%;
+      height: 100%;
+      .weather-date {
+        padding: 0.5rem 0;
+        color: white;
+        background-color: gray;
+      }
+      .weather-cloud {
+        height: 30%;
+        border: 1px dotted gray;
+      }
+      .weather-temp {
+        height: 30%;
+        border: 1px dotted gray;
+      }
+      .weather-rain {
+        height: 30%;
+        border: 1px dotted gray;
+      }
+    }
+  }
+}
+.future-rain {
+  background-color: lightblue;
+}
+.future-temp {
+  background-color: lightgray;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
