@@ -31,11 +31,11 @@ const imgSrc = {
   新竹縣: "../images/新竹縣.jpg",
 };
 // 接收 data Props
-const City = ({ data, selectCity }) => {
+const City = ({ firstElements, selectCity }) => {
   return (
     <div className="City">
-      {data &&
-        data.map((weather, index) => {
+      {firstElements &&
+        firstElements.map((weather, index) => {
           const image = imgSrc[weather.city] || imgSrc.default; // 直接查找物件，如果沒有符合的照片，則顯示 defalut 的照片
           return (
             <section

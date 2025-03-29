@@ -15,7 +15,6 @@ export const WeatherProvider = ({ children }) => {
       const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${APIKey}`;
       let result = await axios.get(API);
       const location = result.data.records.location;
-      console.log(location);
 
       // 建立 fetchAPI 的區域變數 (newData)
       const newData = [];
@@ -23,7 +22,7 @@ export const WeatherProvider = ({ children }) => {
       location.forEach((cityData) => {
         // 創建 forEach 的一個區域變數 (cityWeather)
         const cityWeather = [];
-        // 這個 time 指的是該城市天氣要素（weatherElement）中的時間區間，每個天氣要素都有各自的 time 陣列
+        // time 指的是該城市天氣要素（weatherElement）中的時間區間，每個天氣要素都有各自的 time 陣列
         for (let i = 0; i < cityData.weatherElement[0].time.length; i++) {
           // 將該城市的特定時間區間的天氣資訊加入 cityWeather 陣列 (Wx,Pop,MinT,Ci,MaxT)
           cityWeather.push({

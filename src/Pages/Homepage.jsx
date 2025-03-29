@@ -9,7 +9,9 @@ const Homepage = () => {
   const data = useContext(WeatherContext); // 取得 API 資料
   const [isOpen, setIsOpen] = useState(false);
   const [selectCity, setSelectCity] = useState(null);
-
+  // console.log(data);  此時的 data 是二維陣列
+  // 指提取第一陣列的資訊
+  const firstElements = data.map((element) => element[0]);
   return (
     <div>
       <section className="homepageImage">
@@ -27,7 +29,7 @@ const Homepage = () => {
             // 如果沒有開啟，就加入 className show，開啟則移除
             <ul className={`city-menu ${isOpen ? "show" : ""}`}>
               {/* 顯示 API 內的城市 */}
-              {data.map((weather, index) => (
+              {firstElements.map((weather, index) => (
                 <li key={index} id={index}>
                   <a
                     // 透過 id 來決定要跳到哪一個城市 (Key 給 React 識別)
@@ -59,7 +61,7 @@ const Homepage = () => {
         </div>
       </section>
       {/* 傳遞 Props (data 是 API Data, selectCity 是 重點表單的追蹤目標)*/}
-      <City data={data} selectCity={selectCity} />
+      <City firstElements={firstElements} selectCity={selectCity} />
       {/* 移動至最上方按鈕 */}
       <button
         className="toUp"
