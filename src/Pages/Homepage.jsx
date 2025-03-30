@@ -10,7 +10,7 @@ const Homepage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectCity, setSelectCity] = useState(null);
   // console.log(data);  此時的 data 是二維陣列
-  // 指提取第一陣列的資訊
+  // 指取第一陣列的資訊
   const firstElements = data.map((element) => element[0]);
   return (
     <div>
