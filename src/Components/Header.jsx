@@ -15,14 +15,26 @@ const Header = () => {
         <Link to="/">全台天氣概況</Link>
       </p>
       <p>
-        <Link to="/about">全台天氣預測</Link>
-        <div className="nav-down">
-          {firstElements.map((weather, index) => (
-            <li key={index} id={index}>
-              {weather.city}
-            </li>
-          ))}
-        </div>{" "}
+        <Link
+          to="/about"
+          onClick={(e) => {
+            e.preventDefault(); // 防止跳到 About Page
+            setIsOpen(!isOpen); // 如果狀態是 Open 切換回 不 Open
+          }}
+        >
+          全台天氣預測
+        </Link>
+        {/* 設定開啟與隱藏表單 */}
+        {isOpen && (
+          <ul className={`nav-down ${isOpen ? "show" : ""}`}>
+            {firstElements.map((weather, index) => (
+              <li key={index} id={index}>
+                {weather.city}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div></div>
       </p>
     </div>
   );
