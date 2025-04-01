@@ -28,7 +28,13 @@ const Header = () => {
         {isOpen && (
           <ul className={`nav-down ${isOpen ? "show" : ""}`}>
             {firstElements.map((weather, index) => (
-              <li key={index} id={index}>
+              <li
+                key={index}
+                id={index}
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
                 {weather.city}
               </li>
             ))}
