@@ -15,14 +15,14 @@ const Header = () => {
         <Link to="/">全台天氣概況</Link>
       </p>
       <p>
-        <Link to="/about">
-          全台天氣預測
+        <Link to="/about">全台天氣預測</Link>
+        <div className="nav-down">
           {firstElements.map((weather, index) => (
             <li key={index} id={index}>
               {weather.city}
             </li>
           ))}
-        </Link>
+        </div>{" "}
       </p>
     </div>
   );
