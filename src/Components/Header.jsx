@@ -3,10 +3,9 @@ import "../styles/footer.css";
 import { Link } from "react-router-dom";
 import { WeatherContext } from "../Context/WeatherContext";
 const Header = () => {
-  const { data, firstElements } = useContext(WeatherContext); // 取得 API 資料
+  const { data, firstElements, setSelectCity } = useContext(WeatherContext); // 取得 API 資料
   // const firstElements = data.map((element) => element[0]); // 指取第一陣列的資訊
   const [isOpen, setIsOpen] = useState(false);
-
   // console.log(data);
   return (
     <div className="headerNav">
@@ -35,6 +34,7 @@ const Header = () => {
               id={index}
               onClick={() => {
                 setIsOpen(false);
+                setSelectCity(weather);
               }}
             >
               {weather.city}
