@@ -1,6 +1,12 @@
 import { React, useState, useContext } from "react";
 import "../styles/about.css";
 import { WeatherContext } from "../Context/WeatherContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUmbrella,
+  faCloudSun,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
   const { data, firstElements, selectCity } = useContext(WeatherContext); // 取得 API 資料
@@ -11,13 +17,14 @@ const About = () => {
   const startIndex = page * 3;
   // 取出 3 個 weather-detail 來顯示
   const visibleData = data.slice(startIndex, startIndex + 3);
+  console.log(data);
   return (
     <div>
       <section className="about about-image">
         <h1>
           <span className="city-name">
-            {/* 如果沒有選擇城市，則顯示『請選擇城市』 */}
-            {selectCity ? selectCity.city : "請選擇城市"}
+            {/* 如果沒有選擇城市，則顯示『空白』 */}
+            {selectCity ? selectCity.city : ""}
           </span>
         </h1>
       </section>
@@ -27,15 +34,22 @@ const About = () => {
         <div className="about-weather">
           <div className="about-wind">
             <h2>天氣現象</h2>
-            <span className="info wind">ICON</span>
+            <FontAwesomeIcon className="icon" icon={faSun} />
+            <h1>{selectCity ? selectCity.isComfortable : ""}</h1>
           </div>
           <div className="about-temp">
-            <h2>平均溫度</h2>
-            <span className="info temp">ICON</span>
+            <h2>最高溫度</h2>
+            <span className="info temp">
+              <FontAwesomeIcon className="icon" icon={faCloudSun} />
+            </span>
+            <h1>{selectCity ? selectCity.maxTemp : ""}</h1>
           </div>
           <div className="about-rain">
             <h2>降雨機率</h2>
-            <span className="info rain">ICON</span>
+            <span className="info rain">
+              <FontAwesomeIcon className="icon" icon={faUmbrella} />
+            </span>
+            <h1>{selectCity ? selectCity.isRain : ""}</h1>
           </div>
         </div>
       </section>
