@@ -6,10 +6,55 @@ import {
   faUmbrella,
   faCloudSun,
   faSun,
+  faCloud,
+  faCloudRain,
+  faBolt,
+  faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
-  const { data, firstElements, selectCity } = useContext(WeatherContext); // 取得 API 資料
+  const weatherIconMap = {
+    晴: faSun,
+    晴時多雲: faCloudSun,
+    多雲時晴: faCloudSun,
+    多雲: faCloud,
+    多雲時陰: faCloud,
+    陰時多雲: faCloud,
+    陰: faCloud,
+    短暫陣雨: faCloudRain,
+    多雲短暫陣雨: faCloudRain,
+    陰短暫陣雨: faCloudRain,
+    多雲時晴短暫陣雨: faCloudRain,
+    晴午後短暫雷陣雨: faBolt,
+    午後短暫雷陣雨: faBolt,
+    雷雨: faBolt,
+    大雷雨: faBolt,
+    雷陣雨: faBolt,
+    陰短暫雷陣雨: faBolt,
+    多雲短暫雷陣雨: faBolt,
+    陰時多雲短暫陣雨: faCloudRain,
+    多雲時陰短暫陣雨: faCloudRain,
+    多雲午後短暫雷陣雨: faBolt,
+    多雲時陰午後雷陣雨: faBolt,
+    陰午後短暫雷陣雨: faBolt,
+    雨: faCloudShowersHeavy,
+    大雨: faCloudShowersHeavy,
+    豪雨: faCloudShowersHeavy,
+    暴雨: faCloudShowersHeavy,
+    陰陣雨或雷雨: faBolt,
+    多雲陣雨或雷雨: faBolt,
+    晴午後雷陣雨: faBolt,
+    陰短暫雨: faCloudRain,
+    多雲短暫雨: faCloudRain,
+    晴時多雲午後短暫雷陣雨: faBolt,
+    晴午後短暫雨: faCloudRain,
+    陰時多雲午後雷陣雨: faBolt,
+    多雲午後短暫陣雨: faCloudRain,
+    陰午後短暫陣雨: faCloudRain,
+    晴時多雲短暫陣雨: faCloudRain,
+    default: faCloud,
+  };
+  const { data, selectCity } = useContext(WeatherContext); // 取得 API 資料
   const [page, setPage] = useState(0);
   // 總共頁數是 2
   const maxPage = Math.floor(2);
@@ -17,7 +62,6 @@ const About = () => {
   const startIndex = page * 3;
   // 取出 3 個 weather-detail 來顯示
   const visibleData = data.slice(startIndex, startIndex + 3);
-  console.log(data);
   return (
     <div>
       <section className="about about-image">
@@ -34,8 +78,18 @@ const About = () => {
         <div className="about-weather">
           <div className="about-wind">
             <h2>天氣現象</h2>
-            <FontAwesomeIcon className="icon" icon={faSun} />
-            <h1>{selectCity ? selectCity.isComfortable : ""}</h1>
+            <FontAwesomeIcon
+              className="icon"
+              icon={
+                selectCity
+                  ? //「如果有對應的 icon 就顯示它，或顯示 Default
+                    weatherIconMap[selectCity.isComfortable] ||
+                    //這邊要設定顯示 Default 是為了讓返回的 key 不要是 undefined，不然會直接爆錯誤
+                    weatherIconMap["default"]
+                  : weatherIconMap["default"]
+              }
+            />
+            <h3>{selectCity ? selectCity.isComfortable : ""}</h3>
           </div>
           <div className="about-temp">
             <h2>最高溫度</h2>
