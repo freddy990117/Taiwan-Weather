@@ -46,9 +46,13 @@ export const WeatherProvider = ({ children }) => {
     }
     fetchAPI();
   }, []);
+  // data 是二維陣列，一個陣列中有該城市的三個資訊[ [1,2,3],[1,2,3] ]
+  const firstElements = data.map((element) => element[0]); // 指取第一陣列的資訊
 
   return (
     // WeatherContext 提供 value (API's Data) for children，children 會在 Layout.jsx 帶入
-    <WeatherContext.Provider value={data}>{children}</WeatherContext.Provider>
+    <WeatherContext.Provider value={{ data, firstElements }}>
+      {children}
+    </WeatherContext.Provider>
   );
 };

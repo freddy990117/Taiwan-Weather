@@ -3,7 +3,7 @@ import "../styles/about.css";
 import { WeatherContext } from "../Context/WeatherContext";
 
 const About = () => {
-  const data = useContext(WeatherContext); // 取得 API 資料
+  const { data, firstElements } = useContext(WeatherContext); // 取得 API 資料
   const [page, setPage] = useState(0);
   // 總共頁數是 2
   const maxPage = Math.floor(2);
@@ -11,7 +11,7 @@ const About = () => {
   const startIndex = page * 3;
   // 取出 3 個 weather-detail 來顯示
   const visibleData = data.slice(startIndex, startIndex + 3);
-
+  console.log(firstElements);
   return (
     <div>
       <section className="about about-image">

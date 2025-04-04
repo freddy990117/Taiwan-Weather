@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMap, faUpLong } from "@fortawesome/free-solid-svg-icons";
 
 const Homepage = () => {
-  const data = useContext(WeatherContext); // 取得 API 資料
+  const { data, firstElements } = useContext(WeatherContext); // 取得 API 資料
   const [isOpen, setIsOpen] = useState(false);
   const [selectCity, setSelectCity] = useState(null);
   // console.log(data);  此時的 data 是二維陣列
-  // 指提取第一陣列的資訊
-  const firstElements = data.map((element) => element[0]);
+  // 指取第一陣列的資訊
+  // const firstElements = data.map((element) => element[0]);
   return (
     <div>
       <section className="homepageImage">
