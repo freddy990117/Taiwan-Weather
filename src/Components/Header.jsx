@@ -24,23 +24,24 @@ const Header = () => {
         >
           全台天氣預測 ▽
         </Link>
-        {/* 設定開啟與隱藏表單 */}
-        {isOpen && (
-          <ul className={`nav-down ${isOpen ? "show" : ""}`}>
-            {firstElements.map((weather, index) => (
-              <li
-                key={index}
-                id={index}
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-              >
-                {weather.city}
-              </li>
-            ))}
-          </ul>
-        )}
       </p>
+
+      {/* 設定開啟與隱藏表單 */}
+      {isOpen && (
+        <ul className={`nav-down ${isOpen ? "show" : ""}`}>
+          {firstElements.map((weather, index) => (
+            <li
+              key={index}
+              id={index}
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              {weather.city}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
