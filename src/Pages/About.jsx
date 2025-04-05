@@ -56,7 +56,20 @@ const About = () => {
     default: faCloud,
   };
   const { data, selectCity } = useContext(WeatherContext); // 取得 API 資料
+  // 存放被選擇城市的資料
+  const selectData = [];
+  // 遍佈 data 找到被選擇的城市資訊
+  data.forEach((city) => {
+    city.forEach((result) => {
+      // 使用 Optional Chaining（選擇性鏈接）來判斷是否有選擇 City，如果沒有，則回覆 null or undefined
+      if (result.city === selectCity?.city) {
+        // 將結果新增到 selectData 內
+        selectData.push(result);
+      }
+    });
+  });
 
+  console.log(selectData);
   return (
     <div>
       <section className="about about-image">
