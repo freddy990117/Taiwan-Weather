@@ -12,8 +12,13 @@ import {
   faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons";
 import imgSrc from "../Context/image";
-
+import { BarChart, LineChart } from "../Components/Chart";
 const About = () => {
+  const labels = ["今天", "明天", "後天"];
+  const rainData = [30, 50, 20];
+  const tempData = [22, 24, 23];
+  const comfortData = [80, 70, 90]; // 假設的舒適指數
+
   // 天氣現象資訊
   const weatherIconMap = {
     晴: faSun,
@@ -152,9 +157,19 @@ const About = () => {
         </div>
       </section>
       {/* 下雨機率 */}
-      <section className="about future-rain">下雨機率預測</section>
+      <section className="about future-rain">
+        <h1>下雨機率預測</h1>
+        <BarChart labels={labels} data={rainData} />
+      </section>
       {/* 整週天氣 */}
-      <section className="about future-temp">一週天氣預測</section>
+      <section className="about future-temp">
+        <h1>一週天氣預測</h1>
+        <LineChart
+          labels={labels}
+          tempData={tempData}
+          comfortData={comfortData}
+        />
+      </section>
     </div>
   );
 };
