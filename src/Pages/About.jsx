@@ -11,6 +11,7 @@ import {
   faBolt,
   faCloudShowersHeavy,
 } from "@fortawesome/free-solid-svg-icons";
+import imgSrc from "../Context/image";
 
 const About = () => {
   // 天氣現象資訊
@@ -68,10 +69,13 @@ const About = () => {
       }
     });
   });
-
+  console.log(selectCity);
   return (
     <div>
-      <section className="about about-image">
+      <section className="about about-title">
+        <div className="about-image">
+          {selectCity && <img src={imgSrc[selectCity.city]}></img>}
+        </div>
         <h1>
           <span className="city-name">
             {/* 如果沒有選擇城市，則顯示『空白』 */}

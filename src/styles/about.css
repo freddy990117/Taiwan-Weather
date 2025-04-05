@@ -12,13 +12,21 @@
   width: 100%;
   border: 1px solid black;
 }
-.about-image {
-  margin-top: 3rem;
-  background-image: url(../images/Taiwan.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.about-title {
+  position: relative;
+  z-index: -999;
+  .about-image {
+    z-index: -999;
+    position: absolute;
+    width: 100%;
+    top: 3.7rem;
+    height: 100%;
+    img {
+      height: 60vh;
+    }
+  }
 }
+
 .now-weather {
   flex-direction: column;
   width: 100%;
