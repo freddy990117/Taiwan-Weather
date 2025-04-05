@@ -9,7 +9,7 @@ export const WeatherContext = createContext();
 // 建立 Weather's API Provider (WeatherProvider)
 export const WeatherProvider = ({ children }) => {
   const [data, setData] = useState([]);
-
+  const [selectCity, setSelectCity] = useState(null); // 設定選擇的城市
   useEffect(() => {
     async function fetchAPI() {
       const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${APIKey}`;
@@ -51,7 +51,9 @@ export const WeatherProvider = ({ children }) => {
 
   return (
     // WeatherContext 提供 value (API's Data) for children，children 會在 Layout.jsx 帶入
-    <WeatherContext.Provider value={{ data, firstElements }}>
+    <WeatherContext.Provider
+      value={{ data, firstElements, selectCity, setSelectCity }}
+    >
       {children}
     </WeatherContext.Provider>
   );

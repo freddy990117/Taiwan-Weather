@@ -1,42 +1,53 @@
 .about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 50vh;
+  width: 100%;
   h1 {
     color: lightblue;
     font-size: 3.5rem;
     margin-bottom: 3rem;
   }
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 60vh;
-  width: 100%;
-  border: 1px solid black;
 }
-.about-image {
-  margin-top: 3rem;
-  background-image: url(../images/Taiwan.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.about-title {
+  position: relative;
+  z-index: -999;
+  .about-image {
+    z-index: -999;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    img {
+      height: 80vh;
+    }
+  }
+  h1 {
+    color: white;
+  }
 }
+
 .now-weather {
+  margin-top: 20rem;
   flex-direction: column;
   width: 100%;
   .about-weather {
     width: 70%;
-    height: 40%;
+    height: 50%;
     border: 1px dotted gray;
     display: flex;
     padding: 1rem 0;
     justify-content: space-between;
-    .info {
-      background-color: black;
-    }
-    .about-wind {
-    }
-    .about-temp {
-    }
-    .about-rain {
+    h3 {
+      width: 80%;
+      font-size: 2.5rem;
+      color: lightblue;
+      margin-left: 10%;
+      height: 5rem;
+      line-height: 5rem;
+      text-align: center;
     }
   }
 }
@@ -69,7 +80,7 @@
   .weather-nav {
     border: 1px dotted gray;
     width: 65%;
-    height: 60%;
+    height: 80%;
     display: flex;
     overflow-x: hidden;
     .weather-detail {
@@ -89,26 +100,26 @@
         height: 30%;
         border: 1px dotted gray;
       }
-      .weather-temp {
-        height: 30%;
-        border: 1px dotted gray;
-      }
+      .weather-temp,
       .weather-rain {
         height: 30%;
         border: 1px dotted gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
 }
-.future-rain {
-  background-color: lightblue;
-}
-.future-temp {
-  background-color: lightgray;
-}
 
+.future-rain,
+.future-temp {
+  margin-top: 10rem;
+}
 .icon {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 3rem;
+  margin: 10px 0;
 }
