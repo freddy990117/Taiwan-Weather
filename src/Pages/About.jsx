@@ -69,7 +69,6 @@ const About = () => {
     });
   });
 
-  console.log(selectData);
   return (
     <div>
       <section className="about about-image">
@@ -118,26 +117,34 @@ const About = () => {
       {/* 天氣預測 */}
       <section className="about future-weather">
         <h1>天氣預測</h1>
-
         <div className="weather-nav">
-          <div className="weather-detail">
-            <div className="weather-date">Date</div>
-            <div className="weather-cloud">Weather</div>
-            <div className="weather-temp">Temp</div>
-            <div className="weather-rain">Rain %</div>
-          </div>
-          <div className="weather-detail">
-            <div className="weather-date">Date</div>
-            <div className="weather-cloud">Weather</div>
-            <div className="weather-temp">Temp</div>
-            <div className="weather-rain">Rain %</div>
-          </div>
-          <div className="weather-detail">
-            <div className="weather-date">Date</div>
-            <div className="weather-cloud">Weather</div>
-            <div className="weather-temp">Temp</div>
-            <div className="weather-rain">Rain %</div>
-          </div>
+          {/* 如果 selectData 的長度大於 0，就執行後方 */}
+          {selectData.length > 0 &&
+            selectData.map((dailyWeather, index) => (
+              <div className="weather-detail" key={index}>
+                <div className="weather-date">
+                  {/* 只取得日期與時間 */}
+                  {dailyWeather.startTime.split("").slice(8, 10)}日
+                  {dailyWeather.startTime.split("").slice(11, 13)}時
+                </div>
+                <div className="weather-cloud">
+                  <FontAwesomeIcon
+                    className="icon"
+                    icon={
+                      weatherIconMap[dailyWeather.isComfortable] ||
+                      weatherIconMap["default"]
+                    }
+                  />
+                  {dailyWeather.isComfortable}
+                </div>
+                <div className="weather-temp">
+                  溫度：{dailyWeather.minTemp} - {dailyWeather.maxTemp}
+                </div>
+                <div className="weather-rain">
+                  下雨機率：{dailyWeather.isRain}
+                </div>
+              </div>
+            ))}
         </div>
       </section>
       {/* 下雨機率 */}

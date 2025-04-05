@@ -33,19 +33,10 @@
       width: 80%;
       font-size: 2.5rem;
       color: lightblue;
-      margin-left: 10%; 
+      margin-left: 10%;
       height: 5rem;
       line-height: 5rem;
       text-align: center;
-    }
-    .info {
-      /* background-color: black; */
-    }
-    .about-wind {
-    }
-    .about-temp {
-    }
-    .about-rain {
     }
   }
 }
@@ -98,17 +89,18 @@
         height: 30%;
         border: 1px dotted gray;
       }
-      .weather-temp {
-        height: 30%;
-        border: 1px dotted gray;
-      }
+      .weather-temp,
       .weather-rain {
         height: 30%;
         border: 1px dotted gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
 }
+
 .future-rain {
   background-color: lightblue;
 }
