@@ -77,8 +77,8 @@ const About = () => {
   const rainData = [];
 
   const filteredData = selectData.filter((item) => {
-    const startTime = new Date(item.startTime); // 轉換為 Date 物件
-    return startTime.getHours() === 6; // 檢查是否為 06:00
+    const hour = new Date(item.startTime).getHours();
+    return hour === 6 || hour === 18;
   });
 
   console.log(filteredData);

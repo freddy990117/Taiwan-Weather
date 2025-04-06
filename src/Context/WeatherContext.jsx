@@ -17,12 +17,31 @@ export const WeatherProvider = ({ children }) => {
       const API = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${APIKey}`;
       let result = await axios.get(API);
       const location = result.data.records.Locations[0].Location;
+
+      console.log(location);
       // 建立 fetchAPI 的區域變數 (newData)
       console.log(location);
       const newData = [];
       location.forEach((cityData) => {
+        let lastValidRain = null;
         const cityWeather = [];
         for (let i = 0; i < cityData.WeatherElement[14].Time.length; i++) {
+          // 取出原始值
+          const rainRaw =
+            cityData.WeatherElement[11].Time[i].ElementValue[0]
+              .ProbabilityOfPrecipitation;
+
+          let rainValue;
+
+          if (rainRaw === "-") {
+            // 如果目前是 "-", 嘗試用上一筆有的
+            rainValue = lastValidRain ?? "--";
+          } else {
+            rainValue = parseInt(rainRaw);
+            lastValidRain = rainValue; // ✅ 更新最近一次的有效值
+          }
+          lastValidRain = rainValue;
+
           cityWeather.push({
             // 取得「城市名稱」
             city: cityData.LocationName,
@@ -30,9 +49,7 @@ export const WeatherProvider = ({ children }) => {
             startTime: cityData.WeatherElement[14].Time[i].StartTime,
             endTime: cityData.WeatherElement[14].Time[i].EndTime,
             // 取得「降雨機率」
-            isRain:
-              cityData.WeatherElement[11].Time[i].ElementValue[0]
-                .ProbabilityOfPrecipitation,
+            isRain: rainValue ?? "--", // 如果還是 null，就顯示 "--"
             // 取得「最低溫」
             minTemp:
               cityData.WeatherElement[2].Time[i].ElementValue[0].MinTemperature,
