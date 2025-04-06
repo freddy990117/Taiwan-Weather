@@ -1,84 +1,73 @@
 # Taiwan Weather 🇹🇼
-A web application for you to readily find weather condition and forecast in Taiwan ☀️
 
-
-### Trial in this project 🚩
-**Open Weather Data**
-+ Acquire data from [open API](https://opendata.cwa.gov.tw/dist/opendata-swagger.html#/) provided by Central Weather Bureau in Taiwan
-
-
-**Chart.js**
-+ [Chart.js](https://www.chartjs.org/) is used to visualize data in beautiful chart
-
-___
-
-## Project First Look
-
-Here will put video (Project Not Finish)
-
-
-## Features
-
-| Function                  | Detail                                                                                                                                                     |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| View current weather      | Users can find current weather conditions, temperature and probability of precipitation for each city                                                    |
-| View weather forecast     | 1. Users can view a city's weather forecast for the next 7 days in a table (including weather, temperature, and PoP)<br>2. View probability of precipitation in a bar chart<br>3. View max & min temperature in a line chart |
+一個提供台灣各縣市即時天氣資訊與天氣預報的網頁應用程式 ☀️
 
 ---
 
-## Installation
+### 本專案練習重點 🚩
 
-Follow these instructions to get a copy of the project and run it on your local machine.
+**氣象資料串接**  
+- 使用 [中央氣象局開放資料 API](https://opendata.cwa.gov.tw/dist/opendata-swagger.html#/) 擷取即時天氣與預報資訊
 
+**Chart.js 資料視覺化**  
+- 利用 [Chart.js](https://www.chartjs.org/) 將資料以圖表方式呈現，使使用者更直觀地了解天氣變化
 
-### Clone
+---
 
-Clone this repository to your local machine
+## 專案預覽
+
+（未完成，日後補上 demo 影片）
+
+---
+
+## 功能介紹
+
+| 功能             | 說明                                                                                                                                                     |
+|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 查看即時天氣     | 使用者可以查詢各縣市目前的天氣狀況、氣溫、降雨機率等資訊                                                                                               |
+| 查看天氣預報     | 1. 使用者可查看未來 7 天的天氣預報（包含天氣狀況、氣溫、降雨機率）<br>2. 使用長條圖呈現降雨機率變化<br>3. 使用折線圖呈現最高/最低溫趨勢 |
+
+---
+
+## 安裝與執行方式
+
+請依照以下步驟下載並執行專案。
+
+### 1. Clone 專案
+
+```bash
+git clone https://github.com/freddy990117/Taiwan-Weather.git
+```
+
+### 2. 建立帳號並取得 API 金鑰
 
 ```
-$ git clone https://github.com/freddy990117/Taiwan-Weather.git
+中央氣象局開放資料平台 → 註冊帳號 → 登入後 → 點選「會員資訊」 → 「API 授權碼」 → 取得授權碼
 ```
 
-
-### Setup
-
-**1. Create an account on Central Weather Bureau**
-- [https://opendata.cwb.gov.tw/index](https://opendata.cwa.gov.tw/index)
-
-
-**2. Get an API Key**
-
-```
-Login ->  會員資訊 -> API授權碼 -> 取得授權碼
-```
-
-**3. Enter the project folder**
+## 3. 進入專案資料夾
 
 ```
 $ cd Taiwan-Weather
 ```
 
-**4. Fill in your API key in both local.js & index.js and save**
+## 4. 新增 .env 檔案並填入 API 金鑰
 
 ```
 Create a .env file and input your API Key
 VITE_API_KEY= "YOUR_API_KEY"
 ```
 
-**5. 
+## 5. 安裝套件與執行
 ```
-npm install
+npm install -> npm run dev
 ```
 
-**6. 
-```
-npm run dev
-```
 ___
 
-## Authors 🙋🏻‍♂️
+## 專案作者 🙋🏻‍♂️
 Freddy Chang
 
-## Acknowledgments 🙏
+## 特別感謝 🙏
 
-Special thanks to [smallpaes](https://github.com/smallpaes/taiwan-weather-api) for providing the original structure and design inspiration for this project.
+特別感謝 [smallpaes](https://github.com/smallpaes) 提供本專案的初始結構與設計靈感。
