@@ -22,7 +22,7 @@ Here will put video (Project Not Finish)
 | Function                  | Detail                                                                                                                                                     |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | View current weather      | Users can find current weather conditions, temperature and probability of precipitation for each city                                                    |
-| View weather forecast     | 1. Users can view a city's weather forecast for the next 7 days in a table (including weather, temperature, and PoP)<br>2. View forecasted PoP in a bar chart<br>3. View max & min temperature in a line chart |
+| View weather forecast     | 1. Users can view a city's weather forecast for the next 7 days in a table (including weather, temperature, and PoP)<br>2. View probability of precipitation in a bar chart<br>3. View max & min temperature in a line chart |
 
 ---
 
