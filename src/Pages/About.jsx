@@ -61,7 +61,7 @@ const About = () => {
     晴時多雲短暫陣雨: faCloudRain,
     default: faCloud,
   };
-  const { data, selectCity } = useContext(WeatherContext); // 取得 API 資料
+  const { data, selectCity, firstElements } = useContext(WeatherContext); // 取得 API 資料
   // 存放被選擇城市的資料
   const selectData = [];
   // 遍佈 data 找到被選擇的城市資訊
@@ -112,14 +112,14 @@ const About = () => {
             <span className="info temp">
               <FontAwesomeIcon className="icon" icon={faCloudSun} />
             </span>
-            <h1>{selectCity ? selectCity.maxTemp : ""}</h1>
+            <h1>{selectCity ? selectCity.maxTemp : ""}°C</h1>
           </div>
           <div className="about-rain">
             <h2>降雨機率</h2>
             <span className="info rain">
               <FontAwesomeIcon className="icon" icon={faUmbrella} />
             </span>
-            <h1>{selectCity ? selectCity.isRain : ""}</h1>
+            <h1>{selectCity ? selectCity.isRain : ""}%</h1>
           </div>
         </div>
       </section>
@@ -147,10 +147,10 @@ const About = () => {
                   {dailyWeather.isComfortable}
                 </div>
                 <div className="weather-temp">
-                  溫度：{dailyWeather.minTemp} - {dailyWeather.maxTemp}
+                  溫度：{dailyWeather.minTemp}°C - {dailyWeather.maxTemp}°C
                 </div>
                 <div className="weather-rain">
-                  下雨機率：{dailyWeather.isRain}
+                  下雨機率：{dailyWeather.isRain}%
                 </div>
               </div>
             ))}
