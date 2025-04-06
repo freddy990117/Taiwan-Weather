@@ -22,13 +22,13 @@ ChartJS.register(
   Legend
 );
 
-export const BarChart = ({ labels, data }) => {
+export const BarChart = ({ labels, rainData }) => {
   const chartData = {
     labels,
     datasets: [
       {
         label: "降雨機率 (%)",
-        data,
+        data: rainData,
         backgroundColor: "rgba(75,192,192,0.6)",
       },
     ],
@@ -37,19 +37,19 @@ export const BarChart = ({ labels, data }) => {
   return <Bar data={chartData} />;
 };
 
-export const LineChart = ({ labels, tempData, comfortData }) => {
+export const LineChart = ({ labels, maxTemp, minTemp }) => {
   const chartData = {
     labels,
     datasets: [
       {
         label: "最高溫 (°C)",
-        data: tempData,
+        data: maxTemp,
         borderColor: "rgba(255, 99, 132, 1)",
         tension: 0.4,
       },
       {
         label: "最低溫 (°C)",
-        data: comfortData,
+        data: minTemp,
         borderColor: "rgba(54, 162, 235, 1)",
         tension: 0.4,
       },

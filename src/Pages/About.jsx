@@ -13,11 +13,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import imgSrc from "../Context/image";
 import { BarChart, LineChart } from "../Components/Chart";
+
 const About = () => {
-  const labels = ["今天", "明天", "後天"];
-  const rainData = [30, 50, 20];
-  const tempData = [22, 24, 23];
-  const comfortData = [80, 70, 90]; // 假設的舒適指數
+  const { data, selectCity } = useContext(WeatherContext); // 取得 API 資料
 
   // 天氣現象資訊
   const weatherIconMap = {
@@ -61,7 +59,6 @@ const About = () => {
     晴時多雲短暫陣雨: faCloudRain,
     default: faCloud,
   };
-  const { data, selectCity, firstElements } = useContext(WeatherContext); // 取得 API 資料
   // 存放被選擇城市的資料
   const selectData = [];
   // 遍佈 data 找到被選擇的城市資訊
@@ -74,7 +71,24 @@ const About = () => {
       }
     });
   });
-  console.log(selectCity);
+  const labels = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"];
+  const minTemp = [];
+  const maxTemp = [];
+  const rainData = [];
+
+  const filteredData = selectData.filter((item) => {
+    const startTime = new Date(item.startTime); // 轉換為 Date 物件
+    return startTime.getHours() === 6; // 檢查是否為 06:00
+  });
+
+  console.log(filteredData);
+
+  filteredData.forEach((data) => {
+    minTemp.push(data.minTemp);
+    maxTemp.push(data.maxTemp);
+    rainData.push(data.isRain);
+  });
+
   return (
     <div>
       <section className="about about-title">
@@ -159,15 +173,16 @@ const About = () => {
       {/* 下雨機率 */}
       <section className="about future-rain">
         <h1>下雨機率預測</h1>
-        <BarChart labels={labels} data={rainData} />
+        <BarChart labels={labels} rainData={rainData} />
       </section>
       {/* 整週天氣 */}
       <section className="about future-temp">
         <h1>一週天氣預測</h1>
         <LineChart
           labels={labels}
-          tempData={tempData}
-          comfortData={comfortData}
+          rainData={rainData}
+          minTemp={minTemp}
+          maxTemp={maxTemp}
         />
       </section>
     </div>

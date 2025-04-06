@@ -18,6 +18,7 @@ export const WeatherProvider = ({ children }) => {
       let result = await axios.get(API);
       const location = result.data.records.Locations[0].Location;
       // 建立 fetchAPI 的區域變數 (newData)
+      console.log(location);
       const newData = [];
       location.forEach((cityData) => {
         const cityWeather = [];
@@ -53,7 +54,7 @@ export const WeatherProvider = ({ children }) => {
     }
     fetchAPI();
   }, []);
-
+  console.log(data);
   // 目前的 data 是二維陣列，一個陣列中有該城市的三個資訊[ [1,2,3],[1,2,3] ]
   // 取出第一個值
   const firstElements = data.map((element) => {
