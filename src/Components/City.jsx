@@ -33,7 +33,7 @@ const City = ({ firstElements, selectCity }) => {
                   className="FontAwesomeIcon"
                   icon={faTemperatureHalf}
                 />
-                溫度位於：{weather.minTemp}°C - {weather.maxTemp}°C之間
+                溫度位於：{weather.minTemp}°C - {weather.maxTemp}°C
               </span>
               <span>
                 <FontAwesomeIcon
