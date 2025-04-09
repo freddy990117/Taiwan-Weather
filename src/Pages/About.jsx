@@ -59,7 +59,7 @@ const About = () => {
     晴時多雲短暫陣雨: faCloudRain,
     default: faCloud,
   };
-  
+
   // 存放被選擇城市的資料
   const selectData = [];
   // 遍佈 data 找到被選擇的城市資訊
@@ -73,19 +73,29 @@ const About = () => {
     });
   });
 
-  const labels = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"];
-  const minTemp = [];
-  const maxTemp = [];
-  const rainData = [];
+  // 新增 weekMap 當作週一至週日
+  const weekMap = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"];
+  const labels = []; // label 先設定空字串，後面會放星期幾
+  const minTemp = []; // 最低溫
+  const maxTemp = []; // 最高溫
+  const rainData = []; // 下雨機率
 
+  // 只取一天的天氣資訊 (0600 的天氣資訊)
   const filteredData = selectData.filter((item) => {
+    // 為了取得時間資訊，所以「創造一個物件」去使用 getHour
     const hour = new Date(item.startTime).getHours();
-    return hour === 6 || hour === 18;
+    return hour === 6;
   });
 
   console.log(filteredData);
 
+  // 將天氣資訊放入資料中
   filteredData.forEach((data) => {
+    // 為了取得「星期幾的資訊」，所以「創造一個物件」去使用 getDay
+    const date = new Date(data.startTime);
+    const weekday = weekMap[date.getDay()];
+
+    labels.push(weekday);
     minTemp.push(data.minTemp);
     maxTemp.push(data.maxTemp);
     rainData.push(data.isRain);
