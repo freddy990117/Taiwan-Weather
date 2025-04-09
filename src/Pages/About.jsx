@@ -59,6 +59,7 @@ const About = () => {
     晴時多雲短暫陣雨: faCloudRain,
     default: faCloud,
   };
+  
   // 存放被選擇城市的資料
   const selectData = [];
   // 遍佈 data 找到被選擇的城市資訊
@@ -71,6 +72,7 @@ const About = () => {
       }
     });
   });
+
   const labels = ["週一", "週二", "週三", "週四", "週五", "週六", "週日"];
   const minTemp = [];
   const maxTemp = [];
