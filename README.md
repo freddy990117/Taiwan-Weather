@@ -17,11 +17,8 @@
 ---
 
 ## 專案預覽
-<p align="center">
-  <strong>天氣預報 Demo</strong><br/>
-  <video src="https://i.imgur.com/pBeCJET.mp4" width="600" autoplay loop muted></video>
-</p>
 
+![Image](https://github.com/user-attachments/assets/d1145521-959d-4b7e-9774-c2be0ca587a6)
 
 ## 功能介紹
 
