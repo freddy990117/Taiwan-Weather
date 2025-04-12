@@ -17,10 +17,11 @@
 ---
 
 ## 專案預覽
+<p align="center">
+  <strong>天氣預報 Demo</strong><br/>
+  <video src="https://i.imgur.com/pBeCJET.mp4" width="600" autoplay loop muted></video>
+</p>
 
-<video src="https://i.imgur.com/pBeCJET.mp4" width="600" autoplay loop muted></video>
-
----
 
 ## 功能介紹
 
