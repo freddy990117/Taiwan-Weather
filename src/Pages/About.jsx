@@ -155,8 +155,8 @@ const About = () => {
         <div className="weather-nav">
           {/* 如果 selectData 的長度大於 0，就執行後方 */}
           {selectData.length > 0 &&
-            selectData.map((dailyWeather, index,item) => (
-              <div className="weather-detail" key={item}>
+            selectData.map((dailyWeather, index) => (
+              <div className="weather-detail" key={index}>
                 <div className="weather-date">
                   {/* 只取得日期與時間 */}
                   {dailyWeather.startTime.split("").slice(8, 10)}日

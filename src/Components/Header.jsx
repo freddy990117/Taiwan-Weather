@@ -36,9 +36,9 @@ const Header = () => {
       {/* 設定開啟與隱藏表單 */}
       {isOpen && (
         <ul className={`nav-down ${isOpen ? "show" : ""}`}>
-          {firstElements.map((weather, index,item) => (
+          {firstElements.map((weather, index) => (
             // 3.新增點擊事件
-            <li key={item} id={index} onClick={() => handleCityClick(weather)}>
+            <li key={index} id={index} onClick={() => handleCityClick(weather)}>
               {weather.city}
             </li>
           ))}
