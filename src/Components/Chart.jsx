@@ -34,7 +34,27 @@ export const BarChart = ({ labels, rainData }) => {
     ],
   };
 
-  return <Bar data={chartData} />;
+  // 降雨機率的範圍設定 0-100%
+  const options = {
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+        ticks: {
+          callback: function (value) {
+            return value + "%"; // 顯示百分比符號
+          },
+        },
+      },
+    },
+
+    plugins: {
+      legend: {
+        display: true,
+      },
+    },
+  };
+  return <Bar data={chartData} options={options} />;
 };
 
 export const LineChart = ({ labels, maxTemp, minTemp }) => {
