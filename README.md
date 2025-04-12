@@ -18,7 +18,7 @@
 
 ## 專案預覽
 
-<video src="Taiwan Weather Intro.mov" width="600" autoplay loop muted></video>
+<video src="https://i.imgur.com/pBeCJET.mp4" width="600" autoplay loop muted></video>
 
 ---
 
