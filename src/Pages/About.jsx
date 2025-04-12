@@ -87,8 +87,6 @@ const About = () => {
     return hour === 6;
   });
 
-  console.log(filteredData);
-
   // 將天氣資訊放入資料中
   filteredData.forEach((data) => {
     // 為了取得「星期幾的資訊」，所以「創造一個物件」去使用 getDay
