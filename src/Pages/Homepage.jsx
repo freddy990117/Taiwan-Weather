@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { WeatherContext } from "../Context/WeatherContext";
 import "../styles/style.css";
 import City from "../Components/City";
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMap, faUpLong } from "@fortawesome/free-solid-svg-icons";
 
 const Homepage = () => {
-  const { data, firstElements } = useContext(WeatherContext); // 取得 API 資料
+  const { firstElements } = useContext(WeatherContext); // 取得 API 資料
   const [isOpen, setIsOpen] = useState(false);
   const [selectCity, setSelectCity] = useState(null);
   console.log(data);

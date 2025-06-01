@@ -1,4 +1,4 @@
-import { React, useContext } from "react";
+import { useContext } from "react";
 import "../styles/about.css";
 import { WeatherContext } from "../Context/WeatherContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
