@@ -1,4 +1,4 @@
-import { React, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import "../styles/footer.css";
 import { Link, useNavigate } from "react-router-dom";
 import { WeatherContext } from "../Context/WeatherContext";
