@@ -3,7 +3,7 @@ import "../styles/footer.css";
 import { Link, useNavigate } from "react-router-dom";
 import { WeatherContext } from "../Context/WeatherContext";
 const Header = () => {
-  const { data, firstElements, setSelectCity } = useContext(WeatherContext); // 取得 API 資料
+  const { firstElements, setSelectCity } = useContext(WeatherContext); // 取得 API 資料
   // const firstElements = data.map((element) => element[0]); // 指取第一陣列的資訊
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate(); // 使用 useNavigate
@@ -36,7 +36,7 @@ const Header = () => {
       {/* 設定開啟與隱藏表單 */}
       {isOpen && (
         <ul className={`nav-down ${isOpen ? "show" : ""}`}>
-          {firstElements.map((weather, index,item) => (
+          {firstElements.map((weather, index, item) => (
             // 3.新增點擊事件
             <li key={item} id={index} onClick={() => handleCityClick(weather)}>
               {weather.city}
