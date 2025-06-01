@@ -29,8 +29,8 @@ const Homepage = () => {
             // 如果沒有開啟，就加入 className show，開啟則移除
             <ul className={`city-menu ${isOpen ? "show" : ""}`}>
               {/* 顯示 API 內的城市 */}
-              {firstElements.map((weather, index, item) => (
-                <li key={item} id={index}>
+              {firstElements.map((weather, index) => (
+                <li key={index} id={index}>
                   <a
                     // 透過 id 來決定要跳到哪一個城市 (Key 給 React 識別)
                     href={`#${index}`}

@@ -18,7 +18,10 @@
 
 ## 專案預覽
 
+---
+=======
 ![Image](https://github.com/user-attachments/assets/d1145521-959d-4b7e-9774-c2be0ca587a6)
+
 
 ## 功能介紹
 
