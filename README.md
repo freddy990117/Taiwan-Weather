@@ -18,12 +18,9 @@
 
 ## 專案預覽
 
-<<<<<<< HEAD
-<video src="https://i.imgur.com/pBeCJET.mp4" width="600" autoplay loop muted></video>
----
-=======
 ![Image](https://github.com/user-attachments/assets/d1145521-959d-4b7e-9774-c2be0ca587a6)
->>>>>>> f85a33e1e20c29ca9eb768df937f4c67f666bf43
+
+[▶️ 點我觀看展示影片](https://youtu.be/3F5_BOol3Sk)
 
 ## 功能介紹
 
